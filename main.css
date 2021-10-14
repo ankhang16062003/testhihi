@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+section {
+    background: radial-gradient(#f0483a, #d10a20);
+}
+
+.container {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 100px;
+}
+
+.header {
+    padding: 40px 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .logo {
+    max-width: 90px;
+}
+
+.header .logo img {
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -10px;
+}
+
+.menu li {
+    list-style: none;
+    margin: 25px;
+}
+
+.menu li a {
+    color: #d9ecdc;
+    text-decoration: none;
+    opacity: 0.9;
+    font-size: 15px;
+}
+
+.icon-creat {
+    right: 70px;
+    top: 52px;
+    width: 35px;
+    height: 27px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.icon-creat__item {
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+    transition: all 0.3s linear;
+}
+
+.icon-creat.active {
+    z-index: 1000;
+}
+
+.icon-creat.active .icon-creat__item:nth-child(1) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.icon-creat.active .icon-creat__item:nth-child(2) {
+    display: none;
+}
+
+.icon-creat.active .icon-creat__item:nth-child(3) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.content {
+    display: flex;
+    width: 100%;
+}
+
+.content .title {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content .title h1 {
+    color: #d9ecdc;
+    font-weight: 300;
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+
+.content .title span {
+    margin-left: 7px;
+    font-weight: 600;
+}
+
+.content .title p {
+    color: #d9ecdc;
+    margin: 15px 0;
+    max-width: 90%;
+    text-align: left;
+}
+
+.content .title button {
+    width: 120px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2b2d42;
+    transition: all 0.2s linear;
+}
+
+.content .title button:hover {
+    cursor: pointer;
+    width: 130px;
+    letter-spacing: 1px;
+}
+
+.img-food {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-food img {
+    width: 100%;
+    max-width: 450px;
+    display: none;
+}
+
+.img-food img.active {
+    display: block;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .sci {
+    display: flex;
+}
+
+.footer .sci li {
+    list-style: none;
+}
+
+.footer .sci li a {
+    color: #fff;
+    margin-left: 15px;
+    font-size: 25px;
+    transition: all 0.2s linear;
+    display: block;
+}
+
+.footer .sci li a:hover {
+    opacity: 0.9;
+    transform: translateY(-10px) scale(1.1);
+}
+
+.directional h5 {
+    color: #d8f3dc;
+    font-weight: 400;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.directional h5::before {
+    content: "";
+    height: 2px;
+    width: 50%;
+    background-color: #d8f3dc;
+    position: absolute;
+    left: -60%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.move {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.move .btn-pre,
+.move .btn-next 
+{
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d9ecdc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.move .btn-pre {
+    margin-right: 15px;
+}
+
+.move .icon {
+    color: #d9ecdc;
+    width: 25px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .container {
+        padding: 30px 80px;
+    }
+
+    .header {
+        padding: 30px 80px;
+    }
+
+    .header .logo {
+        max-width: 80px;
+    }
+
+    .menu {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s linear;
+        display: block;
+    }
+
+    .menu.active {
+        display: flex;
+        visibility: visible;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        background: radial-gradient(#f0483a, #d10a20);
+        flex-direction: column;
+        justify-content: center;
+        opacity: 1;
+    }
+
+    .menu li {
+        padding: 25px;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+
+    .menu li a {
+        font-size: 18px;
+    }
+
+    .icon-creat {
+        display: flex;
+    }
+
+    .content {
+        flex-wrap: wrap;
+        margin-top: 122px;
+        margin-bottom: 100px;
+    }
+
+    .content .title {
+        width: 100%;
+    }
+
+    .img-food {
+        width: 100%;
+        min-height: 450px;
+    }
+
+    .content .title button {
+        width: 130px;
+    }
+
+    .footer .sci li a {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 35px;
+    }
+
+    .header {
+        padding: 30px 35px;
+    }
+
+    .content {
+        margin-top: 110px;
+        margin-bottom: 145px;
+    }
+
+    .header .logo {
+        max-width: 50px;
+    }
+
+    .icon-creat {
+        right: 46px;
+        top: 42px;
+        width: 32px
+    }
+
+    .content .title h1 {
+        font-size: 36px;
+    }
+
+    .content .title p {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    .img-food {
+        min-height: 360px;
+    }
+
+    .move {
+        justify-content: space-between;
+    }
+
+    .move .btn-pre, .move .btn-next {
+        margin-right: 0;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+        padding: 30px 35px 25px 35px;
+    }
+
+    .footer .sci {
+        margin-top: 23px;
+    }
+
+    .footer .sci li a {
+        margin: 0 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
